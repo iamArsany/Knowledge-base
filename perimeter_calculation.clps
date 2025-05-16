@@ -1,0 +1,14 @@
+; CLIPS code for rectangle template and perimeter calculation
+(deftemplate rect
+  "Template for a rectangle with height and width"
+  (slot height)
+  (slot width)
+)
+
+(defrule perimeter
+  "Calculates and prints the perimeter of a rectangle"
+  ?rect <- (rect (height ?h) (width ?w))
+  =>
+  (bind ?perimeter (* 2 (+ ?h ?w)))
+  (printout t "The perimeter of the rectangle is: " ?perimeter crlf)
+)
